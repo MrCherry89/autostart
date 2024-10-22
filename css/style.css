@@ -1659,6 +1659,9 @@ ul.tabs li.active {
   border: 0.5px solid #e5e6ea;
   background: #f7f7f7;
 }
+.wholesale-brends-slider .item:hover {
+  background: #e5e5e5;
+}
 @media (max-width: 1400px) {
   .wholesale-brends-slider .item {
     margin: 0 10px;

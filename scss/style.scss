@@ -835,6 +835,9 @@
     border-radius: 16px;
     border: 0.5px solid #e5e6ea;
     background: #f7f7f7;
+    &:hover {
+      background: darken(#f7f7f7, 7%);
+    }
     @media (max-width: 1400px) {
       margin: 0 10px;
     }
