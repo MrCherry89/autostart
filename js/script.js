@@ -30,6 +30,17 @@ $(document).ready(function () {
     ],
   });
 
+  $(".img-slider").slick({
+    dots: true,
+    arrows: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    fade: true,
+    autoplay: true,
+    autoplaySpeed: 1000,
+    speed: 800,
+  });
+
   $("ul.tabs li").click(function () {
     var tab_id = $(this).attr("data-tab");
 
