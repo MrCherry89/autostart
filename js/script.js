@@ -41,6 +41,14 @@ $(document).ready(function () {
     speed: 800,
   });
 
+  $(".top-info-slider").slick({
+    dots: true,
+    arrows: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    variableWidth: true,
+  });
+
   $("ul.tabs li").click(function () {
     var tab_id = $(this).attr("data-tab");
 
