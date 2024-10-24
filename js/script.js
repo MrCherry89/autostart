@@ -41,6 +41,53 @@ $(document).ready(function () {
     speed: 800,
   });
 
+  var isMobile = window.matchMedia("(max-width: 1025px)").matches;
+
+  if (!isMobile) {
+    // Включаем эффект hover для десктопов
+    $(".menu-item").hover(function () {
+      var tabId = $(this).data("tab");
+
+      // Удаляем активные классы
+      $(".menu-item").removeClass("active");
+      $(".tab-contents .item").removeClass("active");
+
+      // Добавляем активные классы для выбранного таба
+      $(this).addClass("active");
+      $('.tab-contents .item[data-tab="' + tabId + '"]').addClass("active");
+    });
+  }
+
+  // Включаем эффект клика для мобильных устройств
+  $(".menu1 .menu-item").on("click", function () {
+    var tabId = $(this).data("tab");
+
+    $(".arrow1").addClass("show");
+
+    // Удаляем активные классы
+    $(".menu-item").removeClass("active");
+    $(".tab-contents .item").removeClass("active");
+
+    // Добавляем активные классы для выбранного таба
+    $(this).addClass("active");
+    $('.tab-contents .item[data-tab="' + tabId + '"]').addClass("active");
+
+    // Прячем меню и показываем контент для мобильных устройств
+    $(this).closest(".tab-menus").addClass("hide");
+    $(".tab-contents").addClass("show");
+  });
+
+  $(".tab-contents .item .info h3").on("click", function () {
+    // $(".tab-contents .item a").removeClass("show");
+    $(this).closest(".info").find("a").addClass("show");
+  });
+
+  $(".arrow1").on("click", function () {
+    $(this).removeClass("show");
+    $(".tab-contents").removeClass("show");
+    $(".tab-menus").removeClass("hide");
+  });
+
   $(".top-info-slider").slick({
     dots: true,
     arrows: false,
@@ -159,5 +206,17 @@ $(document).ready(function () {
     } else {
       $(".see-all span").text("Скрыть все");
     }
+  });
+
+  $(".header .catalog-btn").on("click", function (e) {
+    e.preventDefault();
+    $(".menu-wrap").addClass("open");
+    $("body, html").addClass("overflow");
+  });
+
+  $(".menu-wrap .close").on("click", function (e) {
+    e.preventDefault();
+    $(".menu-wrap").removeClass("open");
+    $("body, html").removeClass("overflow");
   });
 });
